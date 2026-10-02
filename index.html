@@ -7,51 +7,30 @@
   <meta name="description" content="Jogo educacional para praticar a construção e a revisão de parágrafos argumentativos.">
   <title>Construtor de Argumentos</title>
 
+  <!-- Tailwind via CDN: adequado ao protótipo. Para uso offline, substitua por CSS compilado localmente. -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
-    .choice-card[aria-pressed="true"] {
-      border-color: #4f46e5;
-      background: #eef2ff;
-      box-shadow: 0 0 0 2px #4f46e5;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-      }
-    }
+    .choice-card[aria-pressed="true"] { border-color: #4f46e5; background: #eef2ff; box-shadow: 0 0 0 2px #4f46e5; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
   </style>
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-900">
   <div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-10">
     <header class="mb-8 rounded-3xl bg-indigo-950 px-6 py-7 text-white shadow-lg sm:px-9">
-      <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-indigo-200">
-        Jogo de Língua Portuguesa · 9º ano
-      </p>
-      <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
-        Construtor de Argumentos
-      </h1>
-      <p class="mt-3 max-w-3xl text-indigo-100">
-        Combine uma tese, um argumento e um conectivo para formar um parágrafo claro e coerente.
-        Depois, revise o período antes de conferir o resultado.
-      </p>
+      <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-indigo-200">Jogo de Língua Portuguesa · 9º ano</p>
+      <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Construtor de Argumentos</h1>
+      <p class="mt-3 max-w-3xl text-indigo-100">Combine uma tese, um argumento e um conectivo para formar um parágrafo claro e coerente. Depois, revise o período antes de conferir o resultado.</p>
     </header>
 
     <main>
-      <section aria-labelledby="mission-heading"
-        class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
-
+      <section aria-labelledby="mission-heading" class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
         <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p id="progress" class="text-sm font-bold text-indigo-700">Desafio 1 de 10</p>
-            <h2 id="mission-heading" tabindex="-1" class="mt-1 text-2xl font-bold">Desafio 1</h2>
+            <p id="progress" class="text-sm font-bold text-indigo-700">Desafio 1 de 3</p>
+            <h2 id="mission-heading" tabindex="-1" class="mt-1 text-2xl font-bold">Situação</h2>
           </div>
-          <span id="score"
-            class="rounded-full bg-indigo-50 px-4 py-2 text-sm font-bold text-indigo-800">
-            Nota: 10,0 / 10
-          </span>
+          <span id="score" class="rounded-full bg-indigo-50 px-4 py-2 text-sm font-bold text-indigo-800">Acertos: 0</span>
         </div>
 
         <div class="mb-7 rounded-2xl bg-slate-100 p-4 sm:p-5">
@@ -65,13 +44,11 @@
             <p class="mb-3 text-sm text-slate-600">A tese apresenta a posição sobre o tema.</p>
             <div id="thesis-options" class="space-y-2"></div>
           </fieldset>
-
           <fieldset>
             <legend class="mb-3 text-lg font-bold">2. Escolha o argumento</legend>
             <p class="mb-3 text-sm text-slate-600">O argumento oferece uma razão que sustenta a posição.</p>
             <div id="argument-options" class="space-y-2"></div>
           </fieldset>
-
           <fieldset>
             <legend class="mb-3 text-lg font-bold">3. Escolha o conectivo</legend>
             <p class="mb-3 text-sm text-slate-600">O conectivo mostra a relação entre as ideias.</p>
@@ -81,59 +58,32 @@
 
         <div class="mt-7 rounded-2xl border border-indigo-100 bg-indigo-50 p-4 sm:p-5">
           <h3 class="font-bold text-indigo-950">Prévia do parágrafo</h3>
-          <p id="preview" aria-live="polite" class="mt-2 min-h-12 leading-relaxed text-slate-700">
-            Selecione um bloco de cada grupo para montar seu parágrafo.
-          </p>
+          <p id="preview" aria-live="polite" class="mt-2 min-h-12 leading-relaxed text-slate-700">Selecione um bloco de cada grupo para montar seu parágrafo.</p>
         </div>
 
         <div class="mt-6 rounded-2xl border border-slate-200 p-4 sm:p-5">
           <h3 class="font-bold">Etapa de revisão</h3>
-          <p class="mt-1 text-sm text-slate-600">
-            Antes de avaliar, confira: a frase começa com letra maiúscula?
-            As ideias se relacionam? A pontuação ajuda a leitura?
-          </p>
+          <p class="mt-1 text-sm text-slate-600">Antes de avaliar, confira: a frase começa com letra maiúscula? As ideias se relacionam? A pontuação ajuda a leitura?</p>
           <label class="mt-4 flex cursor-pointer items-start gap-3">
-            <input id="reviewed" type="checkbox"
-              class="mt-1 h-5 w-5 rounded border-slate-400 text-indigo-700">
-            <span class="text-sm font-medium">
-              Revisei a clareza, a construção do período e a pontuação.
-            </span>
+            <input id="reviewed" type="checkbox" class="mt-1 h-5 w-5 rounded border-slate-400 text-indigo-700">
+            <span class="text-sm font-medium">Revisei a clareza, a construção do período e a pontuação.</span>
           </label>
         </div>
 
         <div class="mt-6 flex flex-wrap gap-3">
-          <button id="check-button" type="button"
-            class="rounded-xl bg-indigo-700 px-5 py-3 font-bold text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:bg-slate-400"
-            disabled>
-            Avaliar parágrafo
-          </button>
-
-          <button id="next-button" type="button"
-            class="hidden rounded-xl border border-indigo-700 px-5 py-3 font-bold text-indigo-800 hover:bg-indigo-50">
-            Próximo desafio
-          </button>
-
-          <button id="restart-button" type="button"
-            class="rounded-xl border border-slate-300 px-5 py-3 font-bold text-slate-700 hover:bg-slate-100">
-            Recomeçar
-          </button>
+          <button id="check-button" type="button" class="rounded-xl bg-indigo-700 px-5 py-3 font-bold text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:bg-slate-400" disabled>Avaliar parágrafo</button>
+          <button id="next-button" type="button" class="hidden rounded-xl border border-indigo-700 px-5 py-3 font-bold text-indigo-800 hover:bg-indigo-50">Próximo desafio</button>
+          <button id="restart-button" type="button" class="rounded-xl border border-slate-300 px-5 py-3 font-bold text-slate-700 hover:bg-slate-100">Recomeçar</button>
         </div>
 
-        <div id="feedback" role="status" aria-live="polite"
-          class="mt-5 hidden rounded-2xl p-4"></div>
+        <div id="feedback" role="status" aria-live="polite" class="mt-5 hidden rounded-2xl p-4"></div>
       </section>
 
       <aside class="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-950">
-        <strong>Conexão com a BNCC:</strong> a construção de tese e argumentos se relaciona diretamente à habilidade
-        <strong>EF09LP03</strong>. Este jogo também propõe revisar a escrita segundo a norma-padrão e observar a
-        construção dos períodos, aspectos da <strong>EF09LP04</strong>. A escolha de uma opinião diferente não é,
-        por si só, erro.
+        <strong>Conexão com a BNCC:</strong> a construção de tese e argumentos se relaciona diretamente à habilidade <strong>EF09LP03</strong>. Este jogo também propõe revisar a escrita segundo a norma-padrão e observar a construção dos períodos, aspectos da <strong>EF09LP04</strong>. A escolha de uma opinião diferente não é, por si só, erro.
       </aside>
     </main>
-
-    <footer class="py-6 text-center text-xs text-slate-500">
-      Suas escolhas ficam somente nesta sessão do navegador; nenhuma resposta é enviada.
-    </footer>
+    <footer class="py-6 text-center text-xs text-slate-500">Suas escolhas ficam somente nesta sessão do navegador; nenhuma resposta é enviada.</footer>
   </div>
 
   <script>
@@ -319,6 +269,26 @@
         ],
         correct: { thesis: "t3", argument: "a1", connective: "c2" },
         explanation: "As rodas de conversa criam oportunidade para ouvir diferentes experiências. “Isso porque” introduz a razão que sustenta a proposta."
+      },
+      {
+        scenario: "A escola quer reduzir o desperdício de água nos espaços comuns. Monte um parágrafo com uma proposta que possa ser colocada em prática pela comunidade escolar.",
+        thesis: [
+          { id: "t1", text: "A escola deve ampliar o tempo de recreio para todas as turmas." },
+          { id: "t2", text: "A escola precisa adotar medidas para evitar o desperdício de água nos espaços comuns." },
+          { id: "t3", text: "As turmas deveriam usar copos descartáveis durante as atividades escolares." }
+        ],
+        argument: [
+          { id: "a1", text: "um intervalo maior permite que estudantes conversem com mais tranquilidade." },
+          { id: "a2", text: "copos descartáveis podem ser guardados em caixas organizadoras." },
+          { id: "a3", text: "consertar vazamentos e fechar torneiras reduz o consumo sem impedir o uso da água." }
+        ],
+        connective: [
+          { id: "c1", text: "Em contrapartida," },
+          { id: "c2", text: "Isso porque" },
+          { id: "c3", text: "Por outro lado," }
+        ],
+        correct: { thesis: "t2", argument: "a3", connective: "c2" },
+        explanation: "A tese propõe reduzir o desperdício, e o argumento apresenta ações que diminuem o consumo sem impedir o acesso à água. “Isso porque” introduz essa justificativa."
       }
     ];
 
@@ -344,29 +314,23 @@
     function renderChoices(group, items, containerId) {
       const container = document.getElementById(containerId);
       container.replaceChildren();
-
       for (const item of items) {
         const button = document.createElement("button");
         button.type = "button";
-        button.className =
-          "choice-card w-full rounded-xl border-2 border-slate-200 p-3 text-left text-sm leading-relaxed hover:border-indigo-400";
+        button.className = "choice-card w-full rounded-xl border-2 border-slate-200 p-3 text-left text-sm leading-relaxed hover:border-indigo-400";
         button.setAttribute("aria-pressed", String(selected[group] === item.id));
         button.textContent = item.text;
-
         button.addEventListener("click", () => {
           if (answered) return;
           selected[group] = item.id;
           render();
         });
-
         container.append(button);
       }
     }
 
     function currentText(group) {
-      const item = challenges[challengeIndex][group]
-        .find(option => option.id === selected[group]);
-
+      const item = challenges[challengeIndex][group].find(option => option.id === selected[group]);
       return item ? item.text : "";
     }
 
@@ -374,128 +338,77 @@
       const thesis = currentText("thesis");
       const argument = currentText("argument");
       const connective = currentText("connective");
-
       if (!thesis && !argument && !connective) {
-        elements.preview.textContent =
-          "Selecione um bloco de cada grupo para montar seu parágrafo.";
+        elements.preview.textContent = "Selecione um bloco de cada grupo para montar seu parágrafo.";
         return;
       }
-
       const pieces = [];
       if (thesis) pieces.push(thesis);
       if (connective) pieces.push(connective);
       if (argument) pieces.push(argument);
-
       let paragraph = pieces.join(" ");
       paragraph = paragraph.charAt(0).toLocaleUpperCase("pt-BR") + paragraph.slice(1);
-
-      if (thesis && connective && argument) {
-        paragraph += ".";
-      }
-
+      if (thesis && connective && argument) paragraph += ".";
       elements.preview.textContent = paragraph;
     }
 
     function render() {
       const challenge = challenges[challengeIndex];
-
-      elements.progress.textContent =
-        `Desafio ${challengeIndex + 1} de ${challenges.length}`;
+      elements.progress.textContent = `Desafio ${challengeIndex + 1} de ${challenges.length}`;
       elements.heading.textContent = `Desafio ${challengeIndex + 1}`;
       elements.scenario.textContent = challenge.scenario;
-      elements.score.textContent =
-        `Nota: ${grade.toFixed(1).replace(".", ",")} / 10`;
-
+      elements.score.textContent = `Nota: ${grade.toFixed(1).replace(".", ",")} / 10`;
       renderChoices("thesis", challenge.thesis, "thesis-options");
       renderChoices("argument", challenge.argument, "argument-options");
       renderChoices("connective", challenge.connective, "connective-options");
       updatePreview();
-
-      elements.check.disabled =
-        !(selected.thesis && selected.argument && selected.connective &&
-          elements.reviewed.checked) || answered;
+      elements.check.disabled = !(selected.thesis && selected.argument && selected.connective && elements.reviewed.checked) || answered;
     }
 
     function showFeedback(isCorrect, message) {
-      elements.feedback.className =
-        `mt-5 rounded-2xl border p-4 ${
-          isCorrect
-            ? "border-emerald-300 bg-emerald-50 text-emerald-950"
-            : "border-rose-300 bg-rose-50 text-rose-950"
-        }`;
-
+      elements.feedback.className = `mt-5 rounded-2xl border p-4 ${isCorrect ? "border-emerald-300 bg-emerald-50 text-emerald-950" : "border-rose-300 bg-rose-50 text-rose-950"}`;
       elements.feedback.replaceChildren();
-
       const title = document.createElement("p");
       title.className = "font-bold";
-      title.textContent = isCorrect
-        ? "Boa construção!"
-        : "Vamos analisar sua combinação.";
-
+      title.textContent = isCorrect ? "Boa construção!" : "Vamos analisar sua combinação.";
       const body = document.createElement("p");
       body.className = "mt-1 leading-relaxed";
       body.textContent = message;
-
       elements.feedback.append(title, body);
       elements.feedback.classList.remove("hidden");
     }
 
     elements.reviewed.addEventListener("change", render);
-
     elements.check.addEventListener("click", () => {
       const expected = challenges[challengeIndex].correct;
-      const isCorrect =
-        selected.thesis === expected.thesis &&
-        selected.argument === expected.argument &&
-        selected.connective === expected.connective;
-
+      const isCorrect = selected.thesis === expected.thesis && selected.argument === expected.argument && selected.connective === expected.connective;
       if (isCorrect) {
-        showFeedback(
-          true,
-          `${challenges[challengeIndex].explanation} Observe também que os blocos formam um período com início em maiúscula e pontuação final.`
-        );
-
+        showFeedback(true, `${challenges[challengeIndex].explanation} Observe também que os blocos formam um período com início em maiúscula e pontuação final.`);
         answered = true;
         elements.next.classList.remove("hidden");
         elements.check.disabled = true;
-        elements.score.textContent =
-          `Nota: ${grade.toFixed(1).replace(".", ",")} / 10`;
+        elements.score.textContent = `Nota: ${grade.toFixed(1).replace(".", ",")} / 10`;
         elements.next.focus();
       } else {
         let didDeductPoint = false;
-
         if (!mistakeRecorded) {
           grade = Math.max(0, grade - 1);
           mistakeRecorded = true;
           didDeductPoint = true;
-          elements.score.textContent =
-            `Nota: ${grade.toFixed(1).replace(".", ",")} / 10`;
+          elements.score.textContent = `Nota: ${grade.toFixed(1).replace(".", ",")} / 10`;
         }
-
         const correct = challenges[challengeIndex].correct;
         const thesisOK = selected.thesis === correct.thesis;
         const argumentOK = selected.argument === correct.argument;
         const connectiveOK = selected.connective === correct.connective;
         const hints = [];
-
-        if (!thesisOK) {
-          hints.push("Confira se a tese apresenta uma posição sobre a proposta.");
-        }
-        if (!argumentOK) {
-          hints.push("Veja se o argumento oferece uma razão que sustenta essa posição.");
-        }
-        if (!connectiveOK) {
-          hints.push("Releia o conectivo: ele deve expressar a relação lógica entre as duas ideias.");
-        }
-
+        if (!thesisOK) hints.push("Confira se a tese apresenta uma posição sobre a proposta.");
+        if (!argumentOK) hints.push("Veja se o argumento oferece uma razão que sustenta essa posição.");
+        if (!connectiveOK) hints.push("Releia o conectivo: ele deve expressar a relação lógica entre as duas ideias.");
         const gradeMessage = didDeductPoint
           ? "A nota diminuiu 1 ponto neste desafio. Novos erros neste mesmo desafio não reduzem a nota novamente."
           : "A nota deste desafio já foi descontada; esta nova tentativa não reduz a nota novamente.";
-
-        showFeedback(
-          false,
-          `${hints.join(" ")} Ajuste uma ou mais escolhas e tente novamente. ${gradeMessage} Há opiniões diferentes possíveis: o desafio é construir uma combinação coerente.`
-        );
+        showFeedback(false, `${hints.join(" ")} Ajuste uma ou mais escolhas e tente novamente. ${gradeMessage} Há opiniões diferentes possíveis: o desafio é construir uma combinação coerente.`);
       }
     });
 
@@ -511,19 +424,14 @@
         render();
         elements.heading.focus();
       } else {
-        elements.feedback.className =
-          "mt-5 rounded-2xl border border-emerald-300 bg-emerald-50 p-4 text-emerald-950";
+        elements.feedback.className = "mt-5 rounded-2xl border border-emerald-300 bg-emerald-50 p-4 text-emerald-950";
         elements.feedback.replaceChildren();
-
         const title = document.createElement("p");
         title.className = "font-bold";
         title.textContent = "Desafios concluídos!";
-
         const body = document.createElement("p");
         body.className = "mt-1";
-        body.textContent =
-          `Sua nota final é ${grade.toFixed(1).replace(".", ",")} de 10. Releia os parágrafos e observe como tese, argumento e conectivo trabalham juntos.`;
-
+        body.textContent = `Sua nota final é ${grade.toFixed(1).replace(".", ",")} de 10. Releia os parágrafos e observe como tese, argumento e conectivo trabalham juntos.`;
         elements.feedback.replaceChildren(title, body);
         elements.feedback.classList.remove("hidden");
         elements.next.classList.add("hidden");
