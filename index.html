@@ -31,7 +31,7 @@
             <h2 id="mission-heading" tabindex="-1" class="mt-1 text-2xl font-bold">Situação</h2>
           </div>
           <span id="score" class="rounded-full bg-indigo-50 px-4 py-2 text-sm font-bold text-indigo-800">Acertos: 0</span>
-        </div>
+           </div>
 
         <div class="mb-7 rounded-2xl bg-slate-100 p-4 sm:p-5">
           <p class="text-xs font-bold uppercase tracking-wide text-slate-500">Contexto de produção</p>
@@ -50,7 +50,7 @@
             <div id="argument-options" class="space-y-2"></div>
           </fieldset>
           <fieldset>
-            <legend class="mb-3 text-lg font-bold">3. Escolha o conectivo</legend>
+             <legend class="mb-3 text-lg font-bold">3. Escolha o conectivo</legend>
             <p class="mb-3 text-sm text-slate-600">O conectivo mostra a relação entre as ideias.</p>
             <div id="connective-options" class="space-y-2"></div>
           </fieldset>
@@ -69,13 +69,13 @@
             <span class="text-sm font-medium">Revisei a clareza, a construção do período e a pontuação.</span>
           </label>
         </div>
-
+        
         <div class="mt-6 flex flex-wrap gap-3">
           <button id="check-button" type="button" class="rounded-xl bg-indigo-700 px-5 py-3 font-bold text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:bg-slate-400" disabled>Avaliar parágrafo</button>
           <button id="next-button" type="button" class="hidden rounded-xl border border-indigo-700 px-5 py-3 font-bold text-indigo-800 hover:bg-indigo-50">Próximo desafio</button>
           <button id="restart-button" type="button" class="rounded-xl border border-slate-300 px-5 py-3 font-bold text-slate-700 hover:bg-slate-100">Recomeçar</button>
         </div>
-        
+
         <div id="feedback" role="status" aria-live="polite" class="mt-5 hidden rounded-2xl p-4"></div>
       </section>
 
@@ -85,13 +85,13 @@
     </main>
     <footer class="py-6 text-center text-xs text-slate-500">Suas escolhas ficam somente nesta sessão do navegador; nenhuma resposta é enviada.</footer>
   </div>
-
+  
   <script>
     "use strict";
 
     const challenges = [
       {
-             scenario: "O grêmio estudantil está reunindo propostas para melhorar a convivência na escola. Escreva um parágrafo defendendo uma medida que ajude a comunidade escolar.",
+        scenario: "O grêmio estudantil está reunindo propostas para melhorar a convivência na escola. Escreva um parágrafo defendendo uma medida que ajude a comunidade escolar.",
         thesis: [
           { id: "t1", text: "A escola deve criar espaços de leitura e descanso durante o recreio." },
           { id: "t2", text: "A escola deve ampliar o intervalo para que estudantes tenham tempo de descansar e conversar." },
@@ -103,11 +103,11 @@
           { id: "a3", text: "a prática de esportes no intervalo pode estimular hábitos saudáveis entre os jovens." }
         ],
         connective: [
-          { id: "c1", text: "Por outro lado," },
+              { id: "c1", text: "Por outro lado," },
           { id: "c2", text: "Por exemplo," },
           { id: "c3", text: "Isso porque" }
         ],
-         correct: { thesis: "t1", argument: "a2", connective: "c3" },
+        correct: { thesis: "t1", argument: "a2", connective: "c3" },
         explanation: "A tese propõe criar espaços de leitura e descanso. O argumento explica como esses espaços podem acolher diferentes estudantes; “Isso porque” introduz essa justificativa."
       },
       {
@@ -121,7 +121,7 @@
           { id: "a1", text: "quando as porções consideram a fome de cada estudante, menos comida tende a sobrar nos pratos." },
           { id: "a2", text: "a convivência entre turmas pode melhorar quando há atividades coletivas no intervalo." },
           { id: "a3", text: "oferecer receitas variadas permite apresentar novos sabores durante as refeições escolares." }
-           ],
+             ],
         connective: [
           { id: "c1", text: "Ainda assim," },
           { id: "c2", text: "Isso porque" },
@@ -139,7 +139,7 @@
         ],
         argument: [
           { id: "a1", text: "um ambiente renovado pode deixar a leitura mais confortável para quem visita a biblioteca." },
-           { id: "a2", text: "mais horários disponíveis permitem que estudantes consultem livros em outros momentos." },
+                   { id: "a2", text: "mais horários disponíveis permitem que estudantes consultem livros em outros momentos." },
           { id: "a3", text: "ao ouvir colegas comentarem suas leituras, outros estudantes podem descobrir títulos de seu interesse." }
         ],
         connective: [
@@ -149,18 +149,139 @@
         ],
         correct: { thesis: "t2", argument: "a3", connective: "c1" },
         explanation: "A tese propõe que estudantes recomendem livros, e o argumento explica como ouvir colegas pode despertar interesse por novas leituras. “Com isso” introduz o efeito esperado da proposta."
+      },
+      {
+        scenario: "A escola quer economizar energia sem prejudicar as atividades. Prepare um argumento para apresentar uma proposta à direção.",
+        thesis: [
+           { id: "t1", text: "A escola deve substituir todas as aulas por atividades ao ar livre." },
+          { id: "t2", text: "A escola precisa adotar medidas para reduzir o consumo de energia." },
+          { id: "t3", text: "As salas de aula precisam receber novos cartazes informativos." }
+        ],
+        argument: [
+          { id: "a1", text: "cartazes coloridos podem deixar os corredores mais interessantes para quem circula." },
+          { id: "a2", text: "atividades ao ar livre permitem que as turmas conheçam melhor o pátio." },
+          { id: "a3", text: "apagar luzes em salas vazias evita gasto desnecessário sem interromper as aulas." }
+        ],
+        connective: [
+          { id: "c1", text: "Por outro lado," },
+          { id: "c2", text: "Isso porque" },
+          { id: "c3", text: "Apesar disso," }
+        ],
+        correct: { thesis: "t2", argument: "a3", connective: "c2" },
+        explanation: "A proposta trata de reduzir o consumo, e o argumento mostra uma ação concreta que economiza energia sem atrapalhar as aulas. “Isso porque” introduz a justificativa."
+      },
+       {
+        scenario: "A turma quer propor regras para o uso de celulares durante as aulas. Monte um parágrafo que apresente uma regra e uma razão para adotá-la.",
+        thesis: [
+          { id: "t1", text: "Os celulares devem ficar guardados durante explicações e atividades que exigem atenção." },
+          { id: "t2", text: "A escola deve trocar os celulares por computadores em todas as salas." },
+          { id: "t3", text: "Cada estudante deveria usar o celular sem combinar regras com a turma." }
+        ],
+        argument: [
+          { id: "a1", text: "as capas dos aparelhos podem apresentar desenhos de muitos estilos diferentes." },
+          { id: "a2", text: "um acordo claro reduz interrupções e ajuda a turma a manter o foco na atividade." },
+          { id: "a3", text: "alguns estudantes preferem carregar seus aparelhos durante o período escolar." }
+        ],
+        connective: [
+          { id: "c1", text: "Em contrapartida," },
+          { id: "c2", text: "Por exemplo," },
+          { id: "c3", text: "Isso porque" }
+        ],
+        correct: { thesis: "t1", argument: "a2", connective: "c3" },
+  explanation: "A regra propõe guardar o aparelho em momentos que pedem atenção. O argumento explica como um acordo pode reduzir interrupções; “Isso porque” apresenta essa razão."
+      },
+      {
+        scenario: "A escola está avaliando como cuidar melhor das áreas verdes. Escreva uma proposta que possa envolver os estudantes.",
+        thesis: [
+          { id: "t1", text: "A escola deveria retirar todas as plantas para ampliar a área de circulação." },
+          { id: "t2", text: "A escola deve criar um grupo de estudantes para cuidar das áreas verdes." },
+          { id: "t3", text: "As turmas precisam mudar de sala a cada início de semana." }
+        ],
+        argument: [
+          { id: "a1", text: "o cuidado compartilhado ajuda a observar necessidades e manter os espaços conservados." },
+          { id: "a2", text: "as salas de aula podem ter janelas voltadas para diferentes lados." },
+          { id: "a3", text: "mudar de sala permite conhecer outros ambientes da escola." }
+        ],
+        connective: [
+            { id: "c1", text: "Ainda assim," },
+          { id: "c2", text: "Por esse motivo," },
+          { id: "c3", text: "Em contraste," }
+        ],
+        correct: { thesis: "t2", argument: "a1", connective: "c2" },
+        explanation: "A tese propõe cuidado coletivo das áreas verdes, e o argumento mostra como dividir a responsabilidade pode ajudar na conservação. “Por esse motivo” encaminha uma conclusão coerente."
+      },
+      {
+        scenario: "A turma quer tornar os trabalhos em grupo mais organizados. Apresente uma proposta que ajude todos a participar.",
+        thesis: [
+          { id: "t1", text: "Os trabalhos devem ser feitos sempre por uma única pessoa da equipe." },
+          { id: "t2", text: "A turma deve evitar conversas durante qualquer atividade coletiva." },
+          { id: "t3", text: "Cada grupo deve combinar tarefas e responsabilidades antes de começar o trabalho." }
+        ],
+        argument: [
+             { id: "a1", text: "quando as funções ficam claras, cada integrante entende como pode contribuir." },
+          { id: "a2", text: "alguns trabalhos podem usar cartolina, enquanto outros usam cadernos." },
+          { id: "a3", text: "as equipes podem escolher nomes relacionados ao tema estudado." }
+        ],
+        connective: [
+          { id: "c1", text: "Por exemplo," },
+          { id: "c2", text: "Desse modo," },
+          { id: "c3", text: "No entanto," }
+        ],
+        correct: { thesis: "t3", argument: "a1", connective: "c2" },
+        explanation: "Combinar responsabilidades organiza a participação, e funções claras ajudam cada pessoa a saber como colaborar. “Desse modo” apresenta a consequência da proposta."
+      },
+      {
+        scenario: "O conselho escolar quer incentivar a chegada segura de estudantes. A turma vai sugerir uma ação para os horários de entrada e saída.",
+        thesis: [
+          { id: "t1", text: "A escola deve organizar uma área segura para embarque e desembarque nos horários de maior movimento." },
+          { id: "t2", text: "Os estudantes precisam chegar sempre antes do horário das aulas." },
+          { id: "t3", text: "A entrada da escola deve receber mais cartazes sobre eventos culturais." }
+        ],
+        argument: [
+          { id: "a1", text: "eventos culturais podem apresentar diferentes produções feitas pelos estudantes." },
+          { id: "a2", text: "uma área organizada reduz conflitos entre veículos e pessoas que circulam." },
+          { id: "a3", text: "chegar cedo permite conversar com colegas antes do início das aulas." }
+        ],
+        connective: [
+          { id: "c1", text: "Por isso," },
+          { id: "c2", text: "Em seguida," },
+          { id: "c3", text: "Do mesmo modo," }
+        ],
+        correct: { thesis: "t1", argument: "a2", connective: "c1" },
+        explanation: "A proposta organiza o fluxo de chegada e saída, e o argumento mostra como isso pode reduzir conflitos no espaço. “Por isso” introduz um encaminhamento decorrente da razão."
+      },
+      {
+         scenario: "A turma está planejando uma campanha para incentivar o respeito às diferenças na escola. Escreva uma proposta e justifique sua importância.",
+        thesis: [
+          { id: "t1", text: "A campanha deve apresentar apenas uma opinião para evitar qualquer debate." },
+          { id: "t2", text: "A escola precisa cancelar todas as atividades em grupo durante a campanha." },
+          { id: "t3", text: "A escola deve promover rodas de conversa sobre respeito e convivência." }
+        ],
+        argument: [
+          { id: "a1", text: "ouvir experiências diferentes pode ampliar a compreensão e prevenir atitudes desrespeitosas." },
+          { id: "a2", text: "alguns cartazes podem ser feitos com papel de várias cores." },
+          { id: "a3", text: "as atividades escolares acontecem em diferentes dias da semana." }
+        ],
+        connective: [
+          { id: "c1", text: "Ainda assim," },
+          { id: "c2", text: "Isso porque" },
+          { id: "c3", text: "Em vez disso," }
+        ],
+        correct: { thesis: "t3", argument: "a1", connective: "c2" },
+         explanation: "As rodas de conversa criam oportunidade para ouvir diferentes experiências. “Isso porque” introduz a razão que sustenta a proposta."
       }
     ];
 
     const selected = { thesis: null, argument: null, connective: null };
     let challengeIndex = 0;
-    let score = 0;
+    let grade = 10;
     let answered = false;
+    let mistakeRecorded = false;
 
     const elements = {
       heading: document.getElementById("mission-heading"),
       progress: document.getElementById("progress"),
-      score: document.getElementById("score"),
+       score: document.getElementById("score"),
       scenario: document.getElementById("scenario"),
       preview: document.getElementById("preview"),
       reviewed: document.getElementById("reviewed"),
@@ -176,7 +297,7 @@
       for (const item of items) {
         const button = document.createElement("button");
         button.type = "button";
-         button.className = "choice-card w-full rounded-xl border-2 border-slate-200 p-3 text-left text-sm leading-relaxed hover:border-indigo-400";
+        button.className = "choice-card w-full rounded-xl border-2 border-slate-200 p-3 text-left text-sm leading-relaxed hover:border-indigo-400";
         button.setAttribute("aria-pressed", String(selected[group] === item.id));
         button.textContent = item.text;
         button.addEventListener("click", () => {
@@ -210,13 +331,13 @@
       if (thesis && connective && argument) paragraph += ".";
       elements.preview.textContent = paragraph;
     }
-    
+
     function render() {
-      const challenge = challenges[challengeIndex];
+        const challenge = challenges[challengeIndex];
       elements.progress.textContent = `Desafio ${challengeIndex + 1} de ${challenges.length}`;
       elements.heading.textContent = `Desafio ${challengeIndex + 1}`;
       elements.scenario.textContent = challenge.scenario;
-      elements.score.textContent = `Acertos: ${score}`;
+      elements.score.textContent = `Nota: ${grade.toFixed(1).replace(".", ",")} / 10`;
       renderChoices("thesis", challenge.thesis, "thesis-options");
       renderChoices("argument", challenge.argument, "argument-options");
       renderChoices("connective", challenge.connective, "connective-options");
@@ -227,7 +348,7 @@
     function showFeedback(isCorrect, message) {
       elements.feedback.className = `mt-5 rounded-2xl border p-4 ${isCorrect ? "border-emerald-300 bg-emerald-50 text-emerald-950" : "border-rose-300 bg-rose-50 text-rose-950"}`;
       elements.feedback.replaceChildren();
-      const title = document.createElement("p");
+       const title = document.createElement("p");
       title.className = "font-bold";
       title.textContent = isCorrect ? "Boa construção!" : "Vamos analisar sua combinação.";
       const body = document.createElement("p");
@@ -242,13 +363,20 @@
       const expected = challenges[challengeIndex].correct;
       const isCorrect = selected.thesis === expected.thesis && selected.argument === expected.argument && selected.connective === expected.connective;
       if (isCorrect) {
-         score++;
+        score++;
         showFeedback(true, `${challenges[challengeIndex].explanation} Observe também que os blocos formam um período com início em maiúscula e pontuação final.`);
         answered = true;
         elements.next.classList.remove("hidden");
         elements.check.disabled = true;
         elements.score.textContent = `Acertos: ${score}`;
       } else {
+        let didDeductPoint = false;
+        if (!mistakeRecorded) {
+          grade = Math.max(0, grade - 1);
+          mistakeRecorded = true;
+          didDeductPoint = true;
+          elements.score.textContent = `Nota: ${grade.toFixed(1).replace(".", ",")} / 10`;
+        }
         const correct = challenges[challengeIndex].correct;
         const thesisOK = selected.thesis === correct.thesis;
         const argumentOK = selected.argument === correct.argument;
@@ -257,7 +385,10 @@
         if (!thesisOK) hints.push("Confira se a tese apresenta uma posição sobre a proposta.");
         if (!argumentOK) hints.push("Veja se o argumento oferece uma razão que sustenta essa posição.");
         if (!connectiveOK) hints.push("Releia o conectivo: ele deve expressar a relação lógica entre as duas ideias.");
-        showFeedback(false, `${hints.join(" ")} Ajuste uma ou mais escolhas e tente novamente. Há opiniões diferentes possíveis; o desafio é construir uma combinação coerente.`);
+        const gradeMessage = didDeductPoint
+          ? "A nota diminuiu 1 ponto neste desafio. Novos erros neste mesmo desafio não reduzem a nota novamente."
+          : "A nota deste desafio já foi descontada; esta nova tentativa não reduz a nota novamente.";
+        showFeedback(false, `${hints.join(" ")} Ajuste uma ou mais escolhas e tente novamente. ${gradeMessage} Há opiniões diferentes possíveis: o desafio é construir uma combinação coerente.`);
       }
     });
     
@@ -266,6 +397,7 @@
         challengeIndex++;
         selected.thesis = selected.argument = selected.connective = null;
         answered = false;
+        mistakeRecorded = false;
         elements.reviewed.checked = false;
         elements.feedback.classList.add("hidden");
         elements.next.classList.add("hidden");
@@ -279,7 +411,7 @@
         title.textContent = "Desafios concluídos!";
         const body = document.createElement("p");
         body.className = "mt-1";
-        body.textContent = `Você acertou ${score} de ${challenges.length}. Releia os parágrafos e observe como tese, argumento e conectivo trabalham juntos.`;
+         body.textContent = `Sua nota final é ${grade.toFixed(1).replace(".", ",")} de 10. Releia os parágrafos e observe como tese, argumento e conectivo trabalham juntos.`;
         elements.feedback.replaceChildren(title, body);
         elements.feedback.classList.remove("hidden");
         elements.next.classList.add("hidden");
@@ -289,12 +421,13 @@
 
     elements.restart.addEventListener("click", () => {
       challengeIndex = 0;
-      score = 0;
+      grade = 10;
       answered = false;
-      selected.thesis = selected.argument = selected.connective = null;
+      mistakeRecorded = false;
+       selected.thesis = selected.argument = selected.connective = null;
       elements.reviewed.checked = false;
       elements.feedback.classList.add("hidden");
-       elements.next.classList.add("hidden");
+      elements.next.classList.add("hidden");
       elements.check.classList.remove("hidden");
       render();
       elements.heading.focus();
@@ -304,3 +437,4 @@
   </script>
 </body>
 </html>
+         
